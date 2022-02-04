@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Chat2desk</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        div{
+            height: 400px;
+            width: 400px;
+        }    
+        form input{
+            height: 20px;
+            width: 70%;
+            margin: 8px;
+            border-radius: 3px;
+        }
+        label{
+            margin: 15px;
+        }
+        button{
+            margin-top: 30px;
+            margin-left: 100px;
+            height: 30px;
+            border-radius: 5px;
+        }
+    </style>    
+</head>
+<body>
+    <h1>Chat2desk Brasil</h1>
+    <div>
+        <form action="#" method="post" id="form" onsubmit="validaForm(this)">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <label for="">Senha: </label>
+            <input type="password" name="senha" id="senha" required>
+            <button type="submit" id="btn-enviar" onclick="">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
