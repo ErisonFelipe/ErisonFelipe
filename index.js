@@ -34,17 +34,22 @@ app.get("/login", (req, res)=>{
 });
 
 app.post("/login", (req, res)=>{
-    let {nome, email, telefone, senha} = req.body; 
+    let {email, senha} = req.body; 
     let userCadastro = fs.readFileSync("usuarios.json", {encoding:"utf-8"});
     userCadastro = JSON.parse(userCadastro);
-    let compareSenha = bcrypt.compareSync(senha, userCadastro.senha);
-
-    if(email != userCadastro.email){
-        res.send("Seja Bem vindo!")
-    };
-    if(senha != compareSenha){
-        res.send("Senha inválida")
-    };
+    let compareSenha = bcrypt.compareSync(senha, userCadastro.senha);      
+   
+    try {
+        if(email != userCadastro.email){
+            res.send("E-mail não cadastrado")        
+        } else if(!compareSenha){
+            res.send("senha inválida!")
+        }else{
+            res.send("Seja Bem vindo!")
+        };
+    } catch (error) {
+        res.send("Erro ao requisitar " + error)
+    }
 });
 
 app.listen(3030, ()=>{
